@@ -1,7 +1,7 @@
 import { PrismaClient, Prisma } from "@prisma/client";
-import { HashUtil } from "../utils/hash.util.js";
-import { JwtUtil } from "../utils/jwt.util.js";
-import { VerificationUtil } from "../utils/VerificationUtil.js";
+import { HashUtil } from "../utils/hash.util";
+import { JwtUtil } from "../utils/jwt.util";
+import { VerificationUtil } from "../utils/VerificationUtil";
 import { EmailClient } from "../utils/EmailClient";
 
 const prisma = new PrismaClient();

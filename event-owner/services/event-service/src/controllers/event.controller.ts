@@ -17,6 +17,9 @@ export class CreateEventController {
   public updateEvent = async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
+      if (!id) {
+        return res.status(400).json({ error: "Event ID is required" });
+      }
       const event = await this.eventService.updateEvent(id, req.body);
       res.json(event);
     } catch (err: any) {
@@ -27,6 +30,9 @@ export class CreateEventController {
   public deleteEvent = async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
+      if (!id) {
+        return res.status(400).json({ error: "Event ID is required" });
+      }
       const event = await this.eventService.deleteEvent(id);
       res.json(event);
     } catch (err: any) {

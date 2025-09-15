@@ -1,6 +1,6 @@
 
 import type { Request, Response, NextFunction } from "express";
-import { JwtUtil } from "../utils/jwt.util.js";
+import { JwtUtil } from "../utils/jwt.util";
 
 declare global {
   namespace Express {

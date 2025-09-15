@@ -1,7 +1,7 @@
 import express from "express";
 import type { Application, Request, Response, NextFunction } from "express";
 import cors from "cors";
-import authRoutes from "../routes/auth.routes.js";
+import authRoutes from "../routes/auth.routes";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();

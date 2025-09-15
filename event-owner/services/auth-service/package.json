@@ -4,9 +4,10 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-  "dev": "tsx watch src/server.ts",
+  "dev": "tsx watch src/index.ts",
     "build": "tsc",
-    "start": "node dist/server.js",
+    "start": "node dist/index.js",
+     "heroku-postbuild": "npm run build",
     "prisma:generate": "prisma generate --schema=src/prisma/schema.prisma",
     "prisma:migrate": "prisma migrate dev --schema=src/prisma/schema.prisma",
     "prisma:studio": "prisma studio --schema=src/prisma/schema.prisma",

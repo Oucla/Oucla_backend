@@ -43,7 +43,7 @@ export class App {
   }
 
   public async start(): Promise<void> {
-    const PORT = process.env.PORT || 7000; // 👈 use a different port from dashboard-service
+    const PORT = process.env.PORT || 60001;
     try {
       await prisma.$connect();
       console.log("Event Service database connected successfully");

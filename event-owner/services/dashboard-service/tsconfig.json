@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "module": "ES2020",            
+      "moduleResolution": "node",
+      "target": "ES2022",
+      "strict": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "baseUrl": "./src",
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "paths": {
+        "@utils/*": ["utils/*"],
+        "@services/*": ["services/*"],
+        "@controllers/*": ["controllers/*"]
+      },
+      "sourceMap": true,
+      "declaration": true,
+      "declarationMap": true,
+      "noUncheckedIndexedAccess": true,
+      "exactOptionalPropertyTypes": true,
+      "isolatedModules": true
+    }
+  }
+  
