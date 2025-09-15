@@ -2,6 +2,7 @@ import nodemailer, { Transporter } from "nodemailer";
 import fs from "fs";
 import path from "path";
 
+
 interface EmailOptions {
   to: string;
   subject: string;

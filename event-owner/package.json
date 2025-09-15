@@ -6,12 +6,14 @@
     "services/*"
   ],
   "main": "index.js",
-  "scripts": {
-    "start:auth": "npm run dev --prefix services/auth-service",
+ "scripts": {
+  "start:auth": "npm run dev --prefix services/auth-service",
   "start:email": "npm run dev --prefix services/email-service",
-  "start:all": "concurrently \"npm run start:auth\" \"npm run start:email\"",
-    "build": "tsc -b"
-  },
+  "start:dashboard": "npm run dev --prefix services/dashboard-service",
+  "start:event": "npm run dev --prefix services/event-service",
+  "start:all": "concurrently \"npm run start:auth\" \"npm run start:email\" \"npm run start:dashboard\" \"npm run start:event\"",
+  "build": "tsc -b"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
