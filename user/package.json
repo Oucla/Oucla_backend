@@ -10,7 +10,8 @@
   "start:auth": "npm run dev --prefix services/auth-service",
   "start:email": "npm run dev --prefix services/email-service",
   "start:dashboard": "npm run dev --prefix services/dashboard-service",
-  "start:all": "concurrently \"npm run start:auth\" \"npm run start:email\" \"npm run start:dashboard\"",
+  "start:events": "npm run dev --prefix services/events-service",
+  "start:all": "concurrently \"npm run start:auth\" \"npm run start:email\" \"npm run start:dashboard\" \"npm run start:events\"",
   "build": "tsc -b"
 },
   "keywords": [],

@@ -1,5 +1,5 @@
 {
-  "name": "dashboard-service",
+  "name": "events-service",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -12,10 +12,12 @@
     "prisma:studio": "prisma studio --schema=src/prisma/schema.prisma",
     "prisma:deploy": "prisma migrate deploy --schema=src/prisma/schema.prisma",
     "test": "echo \"Error: no test specified\" && exit 1"
+   
   },
-  "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} src/prisma/seed.ts"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
     "@prisma/client": "^6.16.1",
     "cors": "^2.8.5",
@@ -25,10 +27,10 @@
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
-    "@types/node": "^24.4.0",
+    "@types/node": "^24.5.0",
     "prisma": "^6.16.1",
     "ts-node": "^10.9.2",
-    "tsx": "^4.20.5",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.2"
   }
 }
