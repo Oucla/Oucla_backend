@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "target": "ES2022",
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "isolatedModules": true
+  }
+}

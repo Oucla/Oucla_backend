@@ -34,6 +34,9 @@ export class StreamingController {
 
     try {
       jwt.verify(token, StreamingConfig.jwtSecret); // verify ticket/user
+      if (typeof roomId !== "string") {
+        return res.status(400).json({ error: "Invalid roomId" });
+      }
       const url = this.server.getPlaybackUrl(roomId);
       res.json({ playbackUrl: url });
     } catch (err: any) {

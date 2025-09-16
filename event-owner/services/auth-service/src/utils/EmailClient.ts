@@ -13,7 +13,7 @@ export class EmailClient {
   private baseUrl: string;
 
   constructor() {
-    this.baseUrl = process.env.EMAIL_SERVICE_URL || "http://localhost:4000api/email";
+    this.baseUrl = process.env.EMAIL_SERVICE_URL || "http://localhost:4000/api/email";
   }
 
   async sendTemplateEmail(

@@ -83,14 +83,16 @@ export class AuthService {
       if (!baseUrl) throw new Error("APP_BASE_URL is not defined in environment variables");
 
       const verifyLink = `${baseUrl}/verify-email?token=${emailToken}`;
+      const otpCode  = phoneOTP ?? "";
 
       await emailClient.sendTemplateEmail(
         email,
         "Verify Your Event Owner Account",
         "eventOwnerRegistration", // template file in email-service
         {
-          name: firstName || companyName || "User",
+          name: (firstName ?? companyName ?? "Oucler") as string,
           verifyLink,
+          otpCode,
           year: new Date().getFullYear().toString(),
         }
       );

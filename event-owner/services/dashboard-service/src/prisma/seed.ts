@@ -114,6 +114,9 @@ async function main() {
     }
 
     // --- Create VIP Ticket if venue has VIP sections ---
+    if (!venues[0]) {
+      throw new Error("No venue found for VIP ticket creation.");
+    }
     const vipSection = await prisma.section.findFirst({ where: { venueId: venues[0].id, name: { contains: "VIP" } } });
     if (vipSection) {
       const vipTicket = await prisma.ticket.create({
@@ -139,15 +142,21 @@ async function main() {
     }
 
     // --- Assign NORMAL ticket instances to seats (General / Balcony sections) ---
+    if (!venues[0]) {
+      throw new Error("No venue found for assigning normal ticket instances to seats.");
+    }
     const normalSections = await prisma.section.findMany({ where: { venueId: venues[0].id, name: { not: { contains: "VIP" } } } });
     for (const section of normalSections) {
       const seats = await prisma.seat.findMany({ where: { sectionId: section.id } });
       for (const seat of seats) {
+        if (!createdCategories || createdCategories.length === 0) {
+          throw new Error("No ticket categories found for normal ticket assignment.");
+        }
         const randomCategory = createdCategories[Math.floor(Math.random() * createdCategories.length)];
         await prisma.ticketInstance.create({
           data: {
             ticketId: normalTicket.id,
-            categoryId: randomCategory.id,
+            categoryId: randomCategory?.id ?? null,
             seatId: seat.id,
             buyerId: null,
           },
