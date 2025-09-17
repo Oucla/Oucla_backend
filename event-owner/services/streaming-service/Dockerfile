@@ -2,8 +2,9 @@ ARG NODE_VERSION=22.18.0
 FROM node:${NODE_VERSION}-alpine AS base
 WORKDIR /app
 COPY package*.json ./
+COPY tsconfig.json ./
+COPY . .
 RUN npm install 
 RUN npm run build 
-COPY . .
 EXPOSE 7070  
 CMD ["npm","run","start"]
