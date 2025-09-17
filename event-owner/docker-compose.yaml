@@ -1,0 +1,44 @@
+services:
+  event-owner-auth-service:
+    build: ./services/auth-service
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    networks:
+      - Oucla_network
+
+  event-owner-dashboard-service:
+    build: ./services/dashboard-service
+    ports:
+      - "6000:6000"
+    restart: unless-stopped
+    networks:
+      - Oucla_network
+
+  event-owner-email-service:
+    build: ./services/email-service
+    ports:
+      - "4000:4000"
+    restart: unless-stopped
+    networks:
+      - Oucla_network
+
+  event-owner-event-service:
+    build: ./services/event-service
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    networks:
+      - Oucla_network
+
+  # event-owner-streaming-service:
+  #   build: ./services/streaming-service 
+  #   ports:
+  #     - "7070:7070"
+  # restart: unless-stopped
+  #   networks:
+  #     - Oucla_network
+
+networks:
+  Oucla_network:
+   
