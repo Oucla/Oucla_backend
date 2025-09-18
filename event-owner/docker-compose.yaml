@@ -47,7 +47,7 @@ services:
   event-owner-event-service:
     build: ./services/event-service
     ports:
-      - "8080:8080"
+      - "6001:6001"
     restart: unless-stopped
     volumes:
       - ./services/event-service:/app         # mount current directory
