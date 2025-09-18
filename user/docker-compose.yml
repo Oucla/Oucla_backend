@@ -50,7 +50,7 @@ services:
       - "6002:6002"
     restart: unless-stopped
     volumes:
-      - ./services/event-service:/app         # mount current directory
+      - ./services/events-service:/app         # mount current directory
       - /app/node_modules  # keep container node_modules separate
     command: npm run dev
     # volumes:
