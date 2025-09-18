@@ -1,0 +1,72 @@
+services:
+  # user-auth-service:
+  #   build: ./services/auth-service
+  #   ports:
+  #     - "8000:8000"
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ./services/auth-service:/app           # mount current directory
+  #     - /app/node_modules  # keep container node_modules separate
+  #   command: npm run dev
+  #   # volumes:
+  #   #   - .:/app           # mount entire source
+  #   # command: sh -c " npm install && npm run build && npm run start"
+  #   networks:
+  #     - Oucla_network
+
+  # user-dashboard-service:
+  #   build: ./services/dashboard-service
+  #   ports:
+  #     - "6000:6000"
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ./services/dashboard-service:/app           # mount current directory
+  #     - /app/node_modules  # keep container node_modules separate
+  #   command: npm run dev
+  #   # volumes:
+  #   #   - .:/app           # mount entire source
+  #   # command: sh -c "npm install && npm run build && npm run start"
+  #   networks:
+  #     - Oucla_network
+
+  # user-email-service:
+  #   build: ./services/email-service
+  #   ports:
+  #     - "4000:4000"
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ./services/email-service:/app         # mount current directory
+  #     - /app/node_modules  # keep container node_modules separate
+  #   command: npm run dev
+  #   # volumes:
+  #   #   - .:/app           # mount entire source
+  #   # command: sh -c "npm install && npm run build && npm run start"
+  #   networks:
+  #     - Oucla_network
+
+  user-event-service:
+    build: ./services/event-service
+    ports:
+      - "6002:6002"
+    restart: unless-stopped
+    volumes:
+      - ./services/event-service:/app         # mount current directory
+      - /app/node_modules  # keep container node_modules separate
+    command: npm run dev
+    # volumes:
+    #   - .:/app           # mount entire source
+    # command: sh -c "npm install && npm run build && npm run start"
+    networks:
+      - Oucla_network
+
+  # event-owner-streaming-service:
+  #   build: ./services/streaming-service 
+  #   ports:
+  #     - "7070:7070"
+  # restart: unless-stopped
+  #   networks:
+  #     - Oucla_network
+
+networks:
+  Oucla_network:
+   
