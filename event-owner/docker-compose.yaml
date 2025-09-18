@@ -69,4 +69,5 @@ services:
 
 networks:
   Oucla_network:
+    external: true
    
