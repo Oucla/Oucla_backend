@@ -4,6 +4,13 @@ services:
     ports:
       - "8000:8000"
     restart: unless-stopped
+    volumes:
+      - ./services/auth-service:/app           # mount current directory
+      - /app/node_modules  # keep container node_modules separate
+    command: npm run dev
+    # volumes:
+    #   - .:/app           # mount entire source
+    # command: sh -c " npm install && npm run build && npm run start"
     networks:
       - Oucla_network
 
@@ -12,6 +19,13 @@ services:
     ports:
       - "6000:6000"
     restart: unless-stopped
+    volumes:
+      - ./services/dashboard-service:/app           # mount current directory
+      - /app/node_modules  # keep container node_modules separate
+    command: npm run dev
+    # volumes:
+    #   - .:/app           # mount entire source
+    # command: sh -c "npm install && npm run build && npm run start"
     networks:
       - Oucla_network
 
@@ -20,6 +34,13 @@ services:
     ports:
       - "4000:4000"
     restart: unless-stopped
+    volumes:
+      - ./services/email-service:/app         # mount current directory
+      - /app/node_modules  # keep container node_modules separate
+    command: npm run dev
+    # volumes:
+    #   - .:/app           # mount entire source
+    # command: sh -c "npm install && npm run build && npm run start"
     networks:
       - Oucla_network
 
@@ -28,6 +49,13 @@ services:
     ports:
       - "8080:8080"
     restart: unless-stopped
+    volumes:
+      - ./services/event-service:/app         # mount current directory
+      - /app/node_modules  # keep container node_modules separate
+    command: npm run dev
+    # volumes:
+    #   - .:/app           # mount entire source
+    # command: sh -c "npm install && npm run build && npm run start"
     networks:
       - Oucla_network
 

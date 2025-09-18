@@ -1,10 +1,21 @@
-ARG NODE_VERSION=22.18.0
-FROM node:${NODE_VERSION}-alpine AS base
+# Use Node Alpine for smaller image
+FROM node:22-alpine
+
+# Set working directory
 WORKDIR /app
+
+# Install build dependencies if needed
+RUN apk add --no-cache python3 make g++
+
+# Copy package.json and install dependencies
 COPY package*.json ./
-COPY tsconfig.json ./
+RUN npm install
+
+# Copy rest of the code
 COPY . .
-RUN npm install 
-RUN npm run build 
-EXPOSE 4000    
-CMD ["npm","run","start"]
+
+# Expose dev server port
+EXPOSE 4000
+
+# Default command: run dev server
+CMD ["npm", "run", "dev"]
